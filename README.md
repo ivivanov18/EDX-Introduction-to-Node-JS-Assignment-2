@@ -14,12 +14,10 @@ The goal is to put into practice the acquired knowledge in the Express module by
 
 ## ANSWERS
 ### Question 1: 
-
+The entry point of the application is the file server.js which imports the necessary routes to manage posts and/or comments. The store is initialised with one post and 3 comments. A middleware is used to pass the store to req in order to be able to update directly in the posts and comments routes.
 
 ### Question 2:
-The 
-
-### Question 3:
+The project was tested with the following `curl` commands:
 Everything works as it should to.
 The code was tested using the following curl commands:
 - List all posts: `curl "http://localhost:3000/posts/"` : OK
@@ -33,3 +31,6 @@ The code was tested using the following curl commands:
 - Add comment to specific post: `curl -H "Content-Type: application/json" -X POST -d '{"text": "comment 1 to post 1"}'  "http://localhost:3000/posts/1/comments" `: OK
 
 - Update comment to specific post: `curl -H 'Content-Type: application/json' -X PUT -d '{"text": "MODIFIED: Top 10 Node Features Every Developer Must Know BY HEART"}' "http://localhost:3000/posts/0/comments"`: OK
+
+### Question 3:
+I could have added more controls when a new post or comment is added that the app accepts only the specific provided keys.
