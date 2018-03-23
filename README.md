@@ -30,7 +30,7 @@ The code was tested using the following curl commands:
 
 - Add comment to specific post: `curl -H "Content-Type: application/json" -X POST -d '{"text": "comment 1 to post 1"}'  "http://localhost:3000/posts/1/comments" `: OK
 
-- Update comment to specific post: `curl -H 'Content-Type: application/json' -X PUT -d '{"text": "MODIFIED: Top 10 Node Features Every Developer Must Know BY HEART"}' "http://localhost:3000/posts/0/comments"`: OK
+- Update comment to specific post: `curl -H 'Content-Type: application/json' -X PUT -d '{"text": "MODIFIED: Top 10 Node Features Every Developer Must Know BY HEART"}' "http://localhost:3000/posts/1/comments/0"`: OK
 
 ### 3:
 I could have added more controls when a new post or comment is added that the app accepts only the specific provided keys.
