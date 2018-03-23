@@ -5,7 +5,7 @@ module.exports = {
     addPost(req, res) {
         let newPost = req.body;
         let id = req.store.posts.length;
-        req.store.posts.push(newPost);
+        req.store.posts.push({...newPost, comments: []});
         res.status(201).send({id: id});
     },
     updatePost(req, res) {

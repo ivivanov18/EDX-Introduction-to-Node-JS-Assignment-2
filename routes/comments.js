@@ -1,5 +1,11 @@
 module.exports = {
     getComments(req, res) {
+        const postId = req.params.id;
+
+        if(postId >= req.store.posts.length) {
+            console.log("postId >= Length");
+            return res.sendStatus(400);
+        }
         res.status(200).send(req.store.posts[req.params.id].comments);  
     },
     addComment(req, res) {
@@ -8,10 +14,17 @@ module.exports = {
             console.log("postId >= Length");
             return res.sendStatus(400);
         }
+        let id = 0;
         let newComment = req.body;
-        let id = req.store.posts[req.params.id].comments.length;
+        /*if ((req.store.posts[req.params.id].comments == undefined )
+            || (req.store.posts[req.params.id].comments == null)){
+            id = 0;
+        }else{
+            id = req.store.posts[req.params.id].comments.length;
+        }*/
+        
         req.store.posts[req.params.id].comments.push(newComment);
-        res.status(201).send({id: id});
+        res.status(201).send({id: req.store.posts[req.params.id].comments.length - 1});
     },
     updateComment(req, res) {
         const postId = req.params.postId;
